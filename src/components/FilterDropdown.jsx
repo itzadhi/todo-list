@@ -1,27 +1,12 @@
 import React, { useState } from 'react';
 import { Dropdown } from 'react-bootstrap';
 
-function StatusDropdown({
-  defaultOption,
-  optionsList,
-  id,
-  todoList,
-  setTodoList,
-}) {
+function FilterDropdown({ defaultOption, optionsList, setTodoFilter }) {
   const [selectedItem, setSelectedItem] = useState(defaultOption);
 
   const handleSelect = (item) => {
     setSelectedItem(item);
-    const updateDetails = todoList.map((obj) => {
-      if (obj.id === id) {
-        return {
-          ...obj,
-          status: item.option,
-        };
-      }
-      return obj;
-    });
-    setTodoList(updateDetails);
+    setTodoFilter(item.option);
   };
 
   return (
@@ -43,4 +28,4 @@ function StatusDropdown({
   );
 }
 
-export default StatusDropdown;
+export default FilterDropdown;

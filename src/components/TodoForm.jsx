@@ -1,19 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 
 function TodoForm({
-  todoList,
-  setTodoList,
+  todo,
+  setTodo,
   editOn,
-  todoName,
-  setTodoName,
-  todoDescription,
-  setTodoDescription,
   handleAddTodo,
   handleUpdatedTodoList,
 }) {
-  const [validated, setValidated] = useState(false);
-
   return (
     <Form
       onSubmit={editOn ? handleUpdatedTodoList : handleAddTodo}
@@ -22,8 +16,10 @@ function TodoForm({
       <Form.Group className='col-4'>
         <Form.Control
           type='text'
-          value={todoName}
-          onChange={(e) => setTodoName(e.target.value)}
+          value={todo.name}
+          onChange={(e) =>
+            setTodo((prevState) => ({ ...prevState, name: e.target.value }))
+          }
           placeholder='Todo name'
           required
         />
@@ -33,8 +29,13 @@ function TodoForm({
         <Form.Control
           type='text'
           placeholder='Todo description'
-          value={todoDescription}
-          onChange={(e) => setTodoDescription(e.target.value)}
+          value={todo.description}
+          onChange={(e) =>
+            setTodo((prevState) => ({
+              ...prevState,
+              description: e.target.value,
+            }))
+          }
           required
         />
       </Form.Group>
