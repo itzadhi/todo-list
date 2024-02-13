@@ -1,6 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import notFound from './not-found.jpg';
 import { Container } from 'react-bootstrap';
 import TodoForm from './components/TodoForm';
 import TodoCard from './components/TodoCard';
