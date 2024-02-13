@@ -1,16 +1,16 @@
-.custom-input {
+/* .custom-input {
   height: 3rem;
   padding: 0.8rem;
   font-size: 1.1rem;
-}
+} */
 
 .custom-card {
   background-color: rgb(180, 243, 180);
 }
 
 .custom-btn {
-  height: 3rem;
-  font-size: 1.2rem;
+  /* height: 3rem;
+  font-size: 1.2rem; */
   background-color: rgb(73, 120, 73);
 }
 
@@ -20,14 +20,4 @@
 
 .custom-img {
   width: 100%;
-}
-
-@media (max-width: 768px) {
-  .custom-input {
-    font-size: 80%;
-  }
-
-  .custom-btn {
-    font-size: 80%;
-  }
 }
