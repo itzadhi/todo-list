@@ -42,7 +42,6 @@ function TodoForm({
         />
       </Form.Group>
       <Button
-        variant='primary'
         type='submit'
         className='col-3 align-self-end mb-0.5 custom-btn btn-outline-light'
       >

@@ -36,7 +36,7 @@ function TodoCard({
           <div className='d-flex justify-content-end'>
             <Button
               className='m-1 px-4 btn-outline-light'
-              style={{ backgroundColor: '#4F7942', outline: 'none' }}
+              style={{ backgroundColor: '#4F7942' }}
               onClick={() => handleUpdateTodo(id)}
             >
               Edit

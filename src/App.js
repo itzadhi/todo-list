@@ -8,8 +8,8 @@ import { v4 as uuid } from 'uuid';
 import FilterDropdown from './components/FilterDropdown';
 
 function App() {
-  const [todoList, setTodoList] = useState([]);
-  const [filterList, setFilterList] = useState([]);
+  const [todoList, setTodoList] = useState([]); //Used to store the list
+  const [filterList, setFilterList] = useState([]); //Used to display the list based on filters
   const [todoFilter, setTodoFilter] = useState('All');
   const [todo, setTodo] = useState({
     id: '',
@@ -17,7 +17,7 @@ function App() {
     description: '',
     status: 'Not Completed',
   });
-  const [editOn, setEditOn] = useState(false);
+  const [editOn, setEditOn] = useState(false); //Used for update flag
 
   //Handle the filter functionality based on All, Completed and Not Completed
   const handleFilter = () => {
@@ -42,6 +42,7 @@ function App() {
 
   useEffect(() => {
     handleFilter();
+    // eslint-disable-next-line
   }, [todoFilter]);
 
   //Adds the todo to list
