@@ -16,6 +16,7 @@ function TodoForm({
       <Form.Group className='col-4'>
         <Form.Control
           type='text'
+          className='custom-input'
           value={todo.name}
           onChange={(e) =>
             setTodo((prevState) => ({ ...prevState, name: e.target.value }))
@@ -28,6 +29,7 @@ function TodoForm({
       <Form.Group className='col-4'>
         <Form.Control
           type='text'
+          className='custom-input'
           placeholder='Todo description'
           value={todo.description}
           onChange={(e) =>
@@ -42,7 +44,7 @@ function TodoForm({
       <Button
         variant='primary'
         type='submit'
-        className='col-3 h-50 align-self-end mb-0.5'
+        className='col-3 align-self-end mb-0.5 custom-btn btn-outline-light'
       >
         {editOn ? 'Edit todo' : 'Add todo'}
       </Button>

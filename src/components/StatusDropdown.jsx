@@ -10,8 +10,11 @@ function StatusDropdown({
 }) {
   const [selectedItem, setSelectedItem] = useState(defaultOption);
 
+  //Handles the dropdown select option
   const handleSelect = (item) => {
     setSelectedItem(item);
+
+    //Needs to be updated in todolist to refresh the list
     const updateDetails = todoList.map((obj) => {
       if (obj.id === id) {
         return {

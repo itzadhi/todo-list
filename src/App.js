@@ -1,4 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import notFound from './not-found.jpg';
 import { Container } from 'react-bootstrap';
 import TodoForm from './components/TodoForm';
 import TodoCard from './components/TodoCard';
@@ -18,6 +20,7 @@ function App() {
   });
   const [editOn, setEditOn] = useState(false);
 
+  //Handle the filter functionality based on All, Completed and Not Completed
   const handleFilter = () => {
     if (todoFilter === 'Not Completed') {
       const filterTodoList = todoList.filter(
@@ -42,6 +45,7 @@ function App() {
     handleFilter();
   }, [todoFilter]);
 
+  //Adds the todo to list
   const handleAddTodo = (e) => {
     e.preventDefault();
     let id = uuid();
@@ -54,12 +58,14 @@ function App() {
     });
   };
 
+  //Update which todo to be updated in list and place in input
   const handleUpdateTodo = (id) => {
     const updateTodo = todoList.find((item) => item.id === id);
     setTodo(updateTodo);
     setEditOn(true);
   };
 
+  //After updating will gets replaced in todo list
   const handleUpdatedTodoList = (e) => {
     e.preventDefault();
 
@@ -85,6 +91,7 @@ function App() {
     });
   };
 
+  //Delete the todo in list
   const handleDeleteTodo = (id) => {
     const filterTodoList = todoList.filter((item) => item.id !== id);
     setTodoList(filterTodoList);
@@ -92,7 +99,9 @@ function App() {
 
   return (
     <Container>
-      <h1 className='text-success text-center'>My todo</h1>
+      <h1 className='text-center mb-4' style={{ color: 'rgb(73, 120, 73)' }}>
+        My Todolist
+      </h1>
       <TodoForm
         todoList={todoList}
         setTodoList={setTodoList}
@@ -103,22 +112,22 @@ function App() {
         handleUpdatedTodoList={handleUpdatedTodoList}
       />
       <section>
-        <div className='d-flex justify-content-between align-item-center'>
-          <h5>My Todos</h5>
-          <div className='d-inline-flex'>
-            <h5>Status Filter:</h5>
+        <div className='d-flex justify-content-between align-items-center mb-2'>
+          <h3>My Todos</h3>
+          <div className='d-inline-flex justify-content-center align-item-center'>
+            <h4 className='d-md-inline d-none'>Status Filter:</h4>
             <FilterDropdown
-              defaultOption={{ option: 'All', optionColor: 'primary' }}
+              defaultOption={{ option: 'All', optionColor: 'danger' }}
               optionsList={[
-                { option: 'All', optionColor: 'primary' },
-                { option: 'Completed', optionColor: 'primary' },
-                { option: 'Not Completed', optionColor: 'primary' },
+                { option: 'All', optionColor: 'danger' },
+                { option: 'Completed', optionColor: 'danger' },
+                { option: 'Not Completed', optionColor: 'danger' },
               ]}
               setTodoFilter={setTodoFilter}
             />
           </div>
         </div>
-        <div className='row d-flex justify-content-between'>
+        <div className='row'>
           {filterList.map((item) => (
             <TodoCard
               key={item.id}

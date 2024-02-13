@@ -4,13 +4,14 @@ import { Dropdown } from 'react-bootstrap';
 function FilterDropdown({ defaultOption, optionsList, setTodoFilter }) {
   const [selectedItem, setSelectedItem] = useState(defaultOption);
 
+  //Needs to be updated in todolist to refresh the list
   const handleSelect = (item) => {
     setSelectedItem(item);
     setTodoFilter(item.option);
   };
 
   return (
-    <Dropdown>
+    <Dropdown className='mx-2'>
       <Dropdown.Toggle variant={selectedItem.optionColor} id='dropdown-basic'>
         {selectedItem.option}
       </Dropdown.Toggle>
