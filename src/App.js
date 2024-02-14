@@ -8,7 +8,14 @@ import { v4 as uuid } from 'uuid';
 import FilterDropdown from './components/FilterDropdown';
 
 function App() {
-  const [todoList, setTodoList] = useState([]); //Used to store the list
+  const [todoList, setTodoList] = useState([
+    {
+      id: '111',
+      name: 'Sample',
+      description: 'Completed',
+      status: 'Not Completed',
+    },
+  ]); //Used to store the list
   const [filterList, setFilterList] = useState([]); //Used to display the list based on filters
   const [todoFilter, setTodoFilter] = useState('All');
   const [todo, setTodo] = useState({
